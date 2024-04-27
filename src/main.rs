@@ -20,10 +20,6 @@ macro_rules! db {
 
 #[tokio::main]
 async fn main() -> BoxResult<()> {
-    let test = async { 
-        db!().insert("abc", &Test("gaa")).await?;
-    };
-    test.await?;
     db!().insert("abc", &Test("gaa")).await?;
     let test: Test<String> = db!().get("abc").await?;
     println!("{test:?}");

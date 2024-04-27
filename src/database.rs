@@ -9,9 +9,6 @@ pub struct Database {
     cache: Cache,
 }
 
-unsafe impl Send for Database {}
-unsafe impl Sync for Database {}
-
 impl Database {
     pub async fn open() -> BoxResult<Self> {
         Ok(Database {
